@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Categories
 from .models import Post
+from .models import Comment
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -8,6 +9,7 @@ from django_summernote.admin import SummernoteModelAdmin
 class CategoriesAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     list_filter = ['title']
+
 
 @admin.register(Post)
 class PostAdmin(SummernoteModelAdmin):
@@ -18,3 +20,11 @@ class PostAdmin(SummernoteModelAdmin):
     list_filter = ['title', 'created_on']
     search_fields = ['title', 'created_on']
     list_display = ['title', 'created_on']
+
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+
+    list_filter = ['created_on']
+    search_fields = ['name', 'email', 'body']
+    list_display = ['name', 'body', 'post', 'created_on']
