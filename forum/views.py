@@ -1,3 +1,10 @@
 from django.shortcuts import render
+from django.views import generic
+from .models import Categories
+from .models import Post
 
-# Create your views here.
+
+class CategoriesList(generic.ListView):
+    model = Categories
+    template_name = 'forum.html'
+    paginate_by = 8
