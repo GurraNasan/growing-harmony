@@ -6,5 +6,5 @@ from .models import Post
 
 class CategoriesList(generic.ListView):
     model = Categories
-    template_name = 'forum.html'
+    template_name = 'index.html'
     paginate_by = 8
