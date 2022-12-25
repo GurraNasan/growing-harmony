@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
     <div class="page-header d-flex align-items-center">
@@ -8,7 +9,30 @@
                     <h2>Grow in harmony forum:</h2>
                 </div>
             </div>
+            <div class="row">
+                {% for category in categories_list %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="image-container">
+                                {% if "placeholder" in category.categorie_image.url %}
+                                <img class="card-img-top" src="{% static 'img/gallery/pink_flower.jpg' %}"
+                                    alt="PinkFlower">
+                                {% else %}
+                                <img class="card-img-top" src="{{ category.categorie_image.url }}">
+                                {% endif %}
+                            </div>
+                            <a href="#">
+                                <h2 class="card-title">{{ category.title }}</h2>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:2 %}
+            </div>
+            <div class="row">
+                {% endif %}
+                {% endfor %}
+            </div>
         </div>
-    </div>
-
 {% endblock %} 
