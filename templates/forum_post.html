@@ -1,40 +1,44 @@
 {% extends "base.html" %}
+
 {% load static %}
 
 {% block content %}
 
-    <div class="page-header d-flex align-items-center">
-        <div class="container position-relative">
-            <div class="row d-flex justify-content-center">
-                <div class="col-lg-6 text-center">
-                    <h1>Hello!</h1>
-                    <h2>{{ category_title }}</h2>
+<section id="hero" class="hero d-flex flex-column justify-content-center align-items-center" data-aos="fade"
+    data-aos-delay="1500">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 text-center">
+                <h2>{{ category.title }}</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container">
+    <div class="row justify-content-md-center">
+{% for post in posts %}
+        <div class="card-group">
+            <div class="col-12 ">
+                <div class="card bg-secondary">
+                    <div class="card-header">
+                        <a href="#">
+                            <h5 class="card-title bg-dark category-card">{{ post.title }}</h5>
+                        </a>
+                    </div>
+                    <div class="card-body post-card bg-secondary">
+                        {% if "placeholder" in post.featured_image.url %}
+                        <p class="card-text">{{ post.content | safe }}</p>
+                        {% else %}
+                        <div class="image-container">
+                            <img class="card-img-top post-img" src="{{ post.featured_image.url }}">
+                        </div>
+                        <p class="card-text">{{ post.content | safe }}</p>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
-            {% for post in post_list %}
-            <div class="container">
-                <div class="row justify-content-md-center">       
-                    <div class="col-12 ">          
-                      <div class="card">
-                        <div class="card-header">
-                            <a href="#">
-                                <h5 class="card-title bg-dark category-card">{{ post.title }}</h5>
-                            </a>
-                        </div>
-                        <div class="card-body">
-                                {% if "placeholder" in post.featured_image.url %}
-                                <p class="card-text">{{ post.content | safe }}</p>
-                                {% else %}
-                                <div class="image-container">
-                                <img class="card-img-top" src="{{ post.featured_image.url }}">
-                                </div>
-                                <p class="card-text">{{ post.content | safe }}</p>
-                                {% endif %}  
-                        </div>
-                      </div>                                                                                                                                         
-                    </div>                                   
-                  </div>
-            </div>
-            {% endfor %}
         </div>
+{% endfor %}
+    </div>
+</div>
 {% endblock %} 
