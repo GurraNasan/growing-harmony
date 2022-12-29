@@ -13,7 +13,7 @@
                 {% for category in categories_list %}
                 <div class="col-md-4">
                     <div class="card mb-4">
-                        <div class="card-body">
+                        <div class="card-body bg-secondary">
                             <div class="image-container">
                                 {% if "placeholder" in category.categorie_image.url %}
                                 <img class="card-img-top" src="{% static 'img/gallery/pink_flower.jpg' %}"
@@ -23,7 +23,7 @@
                                 {% endif %}
                             </div>
                             <a href="#">
-                                <h2 class="card-title">{{ category.title }}</h2>
+                                <h3 class="card-title bg-dark category-card">{{ category.title }}</h3>
                             </a>
                         </div>
                     </div>
