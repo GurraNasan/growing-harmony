@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Categories
 from .models import Post
@@ -14,10 +14,29 @@ class CategoryList(generic.ListView):
     queryset = Categories.objects.all()
 
 
-# class PostList(generic.ListView):
-#    model = Post
-#    queryset = Post.objects.order_by('-created_on')
-#    template_name = 'forum.html'
+class CategoryDetail(View):
+
+    def get(self, request, slug, *args, **kwargs):
+        queryset = Categories.objects
+        category = get_object_or_404(queryset, slug=slug)
+        posts = category.post_category.order_by('created_on')
+        
+        return render(
+            request,
+            "forum_post.html",
+            {
+                "category": category,
+                "posts": posts
+            }
+        )
+    
+
+class PostList(generic.ListView):
+    model = Post
+    queryset = Post.objects.order_by('-created_on')
+    template_name = 'forum_post.html'
+
 
 def contact(request):
     return render(request, 'contact.html')
+

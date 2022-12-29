@@ -22,7 +22,7 @@
                                 <img class="card-img-top" src="{{ category.categorie_image.url }}">
                                 {% endif %}
                             </div>
-                            <a href="#">
+                            <a href="{% url 'category_detail' category.slug %}">
                                 <h3 class="card-title bg-dark category-card">{{ category.title }}</h3>
                             </a>
                         </div>
