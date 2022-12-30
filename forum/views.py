@@ -8,6 +8,10 @@ def home(request):
     return render(request, 'index.html')
 
 
+def contact(request):
+    return render(request, 'contact.html')
+
+
 class CategoryList(generic.ListView):
     model = Categories
     template_name = 'forum.html'
@@ -31,12 +35,4 @@ class CategoryDetail(View):
         )
     
 
-# class PostList(generic.ListView):
-#    model = Post
-#    queryset = Post.objects.order_by('-created_on')
-#    template_name = 'forum_post.html'
-
-
-def contact(request):
-    return render(request, 'contact.html')
 
