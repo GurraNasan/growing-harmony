@@ -42,7 +42,7 @@
     <header id="header" class="header d-flex align-items-center fixed-top">
         <div class="container-fluid d-flex align-items-center justify-content-between">
 
-            <a href="index.html" class="logo d-flex align-items-center  me-auto me-lg-0">
+            <a href="{% url 'home' %}" class="logo d-flex align-items-center  me-auto me-lg-0">
                 <i class="bi bi-flower1"></i>
                 <h1>Grow in harmony</h1>
             </a>
@@ -53,6 +53,18 @@
                     <li><a href="#">Shop</a></li>
                     <li><a href="{% url 'forum' %}">Forum</a></li>
                     <li><a href="{% url 'contact' %}">Contact</a></li>
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'account_logout' %}">Logout</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href="{% url 'account_signup' %}">Register</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'account_login' %}">Login</a>
+                    </li>
+                    {% endif %}
                 </ul>
             </nav><!-- .navbar -->
 
