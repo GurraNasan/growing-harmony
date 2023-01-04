@@ -38,6 +38,7 @@ class CategoryDetail(View):
 
 
 def AddPost(request, slug):
+    
     category = get_object_or_404(Categories, slug=slug)
     post_form = PostForm(request.POST)
     if request.method == 'POST':
@@ -45,7 +46,7 @@ def AddPost(request, slug):
             post_form.instance.author = request.user
             post_form.instance.category = category
             post = post_form.save()
-            return redirect(request,'forum_post.html')
+            return render(request, "forum.html")
 
     template_name = 'add_post.html'
     content = {

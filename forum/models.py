@@ -24,7 +24,6 @@ class Post(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
     featured_image = CloudinaryField('image', default='placeholder')
-    exerpt = models.TextField(blank=True)
     likes = models.ManyToManyField(User, related_name='post_likes', blank=True)
     category = models.ForeignKey(Categories, on_delete=models.CASCADE, related_name='post_category')
 

@@ -8,7 +8,7 @@
     <h2>Add Post:</h2>
     <div class="row">
         <form method="post">
-            {{ form | crispy }}
+            {{ post_form | crispy }}
             {% csrf_token %}
             <button type="submit" class="btn btn-outline-success right">Submit</button>
             <a class="btn btn-outline-danger right" href="{% url 'forum' %}">Cancel</a>
