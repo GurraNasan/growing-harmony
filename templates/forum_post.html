@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6 text-center">
-                <h2>{{ category.title }}</h2>
+                <h1>{{ category.title }}</h1>
             </div>
             <div class="text-center">
             {% if user.is_authenticated %}
@@ -30,12 +30,19 @@
                     <div class="card-header">
                         <div class="card-title bg-dark category-card">
                         <a href="#">
-                            <h3>{{ post.title }}</h3>
+                            <h2>{{ post.title }}</h2>
+                        </a>
+                        </div>
+                        <div class="card-title bg-dark category-card card-header-text">
+                            <div>
+                                {{ post.created_on }} 
+                                Author: {{ post.author }}
+                            </div>
+                            
                             {% if user.is_authenticated %}
                             <a href="{% url 'delete_post' post.id %}" class="btn btn-danger right "><i class="bi bi-trash"></i>Delete</a>
                             <a href="{% url 'edit_post' post.id %}" class="btn btn-primary right "><i class="bi bi-pencil"></i>Edit</a>
                             {% endif %}
-                        </a>
                         </div>
                     </div>
                     <div class="card-body post-card bg-secondary">

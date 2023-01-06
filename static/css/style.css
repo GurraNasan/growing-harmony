@@ -6,6 +6,10 @@
   font-size: 150%;
 }
 
+.card-header-text  {
+  font-size: 13px;
+}
+
 .post-card {
   max-height: 750px;
   overflow: hidden;
