@@ -7,7 +7,7 @@
 <div class="container add-post-section">
     <h2>Add Post:</h2>
     <div class="row">
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             {{ post_form | crispy }}
             {% csrf_token %}
             <button type="submit" class="btn btn-outline-success right">Submit</button>

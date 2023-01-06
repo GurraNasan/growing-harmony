@@ -40,7 +40,7 @@ class CategoryDetail(View):
 def AddPost(request, slug):
     model = Post
     category = get_object_or_404(Categories, slug=slug)
-    post_form = PostForm(request.POST)
+    post_form = PostForm(request.POST, request.FILES)
     if request.method == 'POST':
         if post_form.is_valid():
             post_form.instance.author = request.user
