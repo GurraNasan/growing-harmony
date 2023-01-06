@@ -31,7 +31,10 @@
                         <div class="card-title bg-dark category-card">
                         <a href="#">
                             <h3>{{ post.title }}</h3>
+                            {% if user.is_authenticated %}
                             <a href="{% url 'delete_post' post.id %}" class="btn btn-danger right "><i class="bi bi-trash"></i>Delete</a>
+                            <a href="{% url 'edit_post' post.id %}" class="btn btn-primary right "><i class="bi bi-trash"></i>Edit</a>
+                            {% endif %}
                         </a>
                         </div>
                     </div>
@@ -47,7 +50,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>   
     {% endfor %}
     </div>
 </div>

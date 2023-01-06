@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="row">
-                {% for category in categories_list %}
+            {% for category in categories_list %}
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body bg-secondary">
@@ -28,7 +28,7 @@
                         </div>
                     </div>
                 </div>
-                {% if forloop.counter|divisibleby:3 %}
+            {% if forloop.counter|divisibleby:3 %}
             </div>
             <div class="row">
                 {% endif %}

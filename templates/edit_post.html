@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container add-post-section">
+    <h2>Edit Post:</h2>
+    <div class="row">
+        {% if user.is_authenticated %}
+        {% load cloudinary %}
+        <form method="post" enctype="multipart/form-data">
+            {{ post_form | crispy }}
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-success right">Submit</button>
+            <a class="btn btn-outline-danger right" href="{% url 'forum' %}">Cancel</a>
+        </form>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

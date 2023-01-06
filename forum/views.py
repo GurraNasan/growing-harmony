@@ -58,6 +58,25 @@ def AddPost(request, slug):
     return render(request, template_name, content)
 
 
+def EditPost(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    if post.author != request.user:
+        return redirect(reverse('forum_post'))
+
+    post_form = PostForm(request.POST or None, instance=post)
+    if request.method == 'POST':
+        if post_form.is_valid():
+            post_form.instance.author = request.user
+            post = post_form.save()
+            return redirect(reverse('forum'))
+
+    template_name = 'edit_post.html'
+    content = {
+        "post_form": post_form
+    }
+    return render(request, template_name, content)
+
+
 def DeletePost(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     if post.author != request.user:
