@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from .models import Categories
 from .models import Post
@@ -38,7 +38,7 @@ class CategoryDetail(View):
 
 
 def AddPost(request, slug):
-    
+    model = Post
     category = get_object_or_404(Categories, slug=slug)
     post_form = PostForm(request.POST)
     if request.method == 'POST':
@@ -46,12 +46,12 @@ def AddPost(request, slug):
             post_form.instance.author = request.user
             post_form.instance.category = category
             post = post_form.save()
-            return render(request, "forum.html")
+            return redirect(reverse('forum'))
 
     template_name = 'add_post.html'
     content = {
         "category": category,
         "post_form": PostForm()
-                
+
     }
     return render(request, template_name, content)
