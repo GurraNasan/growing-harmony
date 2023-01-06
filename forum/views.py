@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
+from django.contrib import messages
 from django.views import generic, View
 from .models import Categories
 from .models import Post
@@ -55,3 +56,11 @@ def AddPost(request, slug):
 
     }
     return render(request, template_name, content)
+
+
+def DeletePost(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    if post.author != request.user:
+        return redirect(reverse('forum_post'))
+    post.delete()
+    return redirect(reverse('forum'))

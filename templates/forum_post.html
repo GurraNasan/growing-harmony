@@ -28,9 +28,12 @@
             <div class="col-12 ">
                 <div class="card bg-secondary">
                     <div class="card-header">
+                        <div class="card-title bg-dark category-card">
                         <a href="#">
-                            <h5 class="card-title bg-dark category-card">{{ post.title }}</h5>
+                            <h3>{{ post.title }}</h3>
+                            <a href="{% url 'delete_post' post.id %}" class="btn btn-danger right "><i class="bi bi-trash"></i>Delete</a>
                         </a>
+                        </div>
                     </div>
                     <div class="card-body post-card bg-secondary">
                         {% if "placeholder" in post.featured_image.url %}
