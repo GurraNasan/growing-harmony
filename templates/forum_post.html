@@ -15,7 +15,7 @@
             </div>
             <div class="text-center">
             {% if user.is_authenticated %}
-            <a href="{% url 'add_post' category.slug %}" class="btn btn-outline-success right">Add Post</a>
+            <a href="{% url 'add_post' category.slug %}" class="btn btn-outline-success right"><i class="bi bi-plus-square-fill"></i> Add Post</a>
             {% endif %}
             </div>
         </div>
@@ -33,7 +33,7 @@
                             <h3>{{ post.title }}</h3>
                             {% if user.is_authenticated %}
                             <a href="{% url 'delete_post' post.id %}" class="btn btn-danger right "><i class="bi bi-trash"></i>Delete</a>
-                            <a href="{% url 'edit_post' post.id %}" class="btn btn-primary right "><i class="bi bi-trash"></i>Edit</a>
+                            <a href="{% url 'edit_post' post.id %}" class="btn btn-primary right "><i class="bi bi-pencil"></i>Edit</a>
                             {% endif %}
                         </a>
                         </div>
