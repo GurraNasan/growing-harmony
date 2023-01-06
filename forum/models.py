@@ -34,7 +34,7 @@ class Post(models.Model):
 
     class Meta:
         # Arrange the post by when they are created
-        ordering = ['created_on']
+        ordering = ['-created_on']
 
     def __str__(self):
         return str(self.title)
