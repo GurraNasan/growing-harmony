@@ -6,59 +6,40 @@
 
 {% load crispy_forms_tags %}
 
-<section id="hero" class="hero d-flex flex-column justify-content-center align-items-center" data-aos="fade"
-    data-aos-delay="1500">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-6 text-center">
-                <h1>{{ category.title }}</h1>
-            </div>
-            <div class="text-center">
-            {% if user.is_authenticated %}
-            <a href="{% url 'add_post' category.slug %}" class="btn btn-outline-success right"><i class="bi bi-plus-square-fill"></i> Add Post</a>
-            {% endif %}
-            </div>
-        </div>
-    </div>
-</section>
-<div class="container">
+
+<div class="container post-section">
     <div class="row justify-content-md-center">
-    {% for post in posts %}
-        <div class="card-group">
-            <div class="col-12 ">
-                <div class="card bg-secondary">
-                    <div class="card-header">
-                        <div class="card-title bg-dark category-card">
-                        <a href="#">
-                            <h2>{{ post.title }}</h2>
-                        </a>
-                        </div>
-                        <div class="card-title bg-dark category-card card-header-text">
-                            <div>
-                                {{ post.created_on }} 
-                                Author: {{ post.author }}
-                            </div>
-                            
-                            {% if user.is_authenticated %}
-                            <a href="{% url 'delete_post' post.id %}" class="btn btn-danger right "><i class="bi bi-trash"></i>Delete</a>
-                            <a href="{% url 'edit_post' post.id %}" class="btn btn-primary right "><i class="bi bi-pencil"></i>Edit</a>
-                            {% endif %}
-                        </div>
+        <div class="card bg-secondary">
+            <div class="card-header">
+                <div class="card-title bg-dark post-card">
+                    <h2>{{ post.title }}</h2>
+                </div>
+                <div class="card-title bg-dark post-card">
+                    <div>
+                        {{ post.created_on }}
+                        Author: {{ post.author }}
                     </div>
-                    <div class="card-body post-card bg-secondary">
-                        {% if "placeholder" in post.featured_image.url %}
-                        <p class="card-text">{{ post.content | safe }}</p>
-                        {% else %}
-                        <div class="image-container">
-                            <img class="card-img-top post-img" src="{{ post.featured_image.url }}">
-                        </div>
-                        <p class="card-text">{{ post.content | safe }}</p>
-                        {% endif %}
-                    </div>
+
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'delete_post' post.id %}" class="btn btn-danger right "><i
+                            class="bi bi-trash"></i>Delete</a>
+                    <a href="{% url 'edit_post' post.id %}" class="btn btn-primary right "><i
+                            class="bi bi-pencil"></i>Edit</a>
+                    {% endif %}
                 </div>
             </div>
-        </div>   
-    {% endfor %}
+            <div class="card-body post-card bg-secondary">
+                {% if "placeholder" in post.featured_image.url %}
+                <p class="card-text">{{ post.content | safe }}</p>
+                {% else %}
+                <div class="image-container">
+                    <img class="card-img-top post-img" src="{{ post.featured_image.url }}">
+                </div>
+                <p class="card-text">{{ post.content | safe }}</p>
+                {% endif %}
+            </div>
+        </div>
+
     </div>
 </div>
 {% endblock %} 

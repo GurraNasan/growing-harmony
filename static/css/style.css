@@ -10,6 +10,12 @@
   font-size: 13px;
 }
 
+.border-post {
+  border: 2px;
+  border-color: #27a776;
+  border-style: solid;
+}
+
 .post-card {
   max-height: 750px;
   overflow: hidden;
@@ -32,5 +38,10 @@
 
 .add-post-section {
   padding-top: 100px;
+}
+
+.post-section {
+  padding-top: 100px;
+  align-content: center;
 }
 

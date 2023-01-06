@@ -29,11 +29,29 @@ class CategoryDetail(View):
 
         return render(
             request,
-            "forum_post.html",
+            "forum_category.html",
             {
                 "category": category,
                 "posts": posts,
-                "post_form": PostForm()
+                "post_form": PostForm(),
+            }
+        )
+
+
+class PostDetail(View):
+
+    def get(self, request, slug, *args, **kwargs):
+        queryset = Post.objects
+        post = get_object_or_404(queryset, slug=slug)
+        comments = post.comments.order_by('-created_on')
+
+        return render(
+            request,
+            "forum_post.html",
+            {
+                "post": post,
+                "Comments": comments,
+                "post_form": PostForm(),
             }
         )
 
