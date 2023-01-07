@@ -45,3 +45,12 @@
   align-content: center;
 }
 
+.like-btn {
+  border: none;
+  background: transparent;
+  color: #27a776;
+}
+
+.like-section {
+  display: flex;
+}
