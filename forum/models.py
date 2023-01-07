@@ -51,8 +51,7 @@ class Comment(models.Model):
     # code is copied from I think there for i blog, Code Institute
 
     post = models.ForeignKey(Post, on_delete=models.CASCADE,  related_name='comments')
-    name = models.CharField(max_length=80)
-    email = models.EmailField()
+    author = models.CharField(max_length=80)
     comment = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
 
