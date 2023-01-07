@@ -20,7 +20,7 @@
                         Author: {{ post.author }}
                     </div>
 
-                    {% if user.is_authenticated %}
+                    {% if post.author == request.user %}
                     <a href="{% url 'delete_post' post.id %}" class="btn btn-danger right "><i
                             class="bi bi-trash"></i>Delete</a>
                     <a href="{% url 'edit_post' post.id %}" class="btn btn-primary right "><i
@@ -45,7 +45,6 @@
             <hr>
             <h3>Comments: </h3>
             {% for comment in comments %}
-            Do the loop work
             <div class="card bg-secondary">
                 <div class="card-header">
                     Author: {{ comment.author }} 

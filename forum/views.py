@@ -63,7 +63,7 @@ class PostDetail(View):
         comment_form = CommentForm(data=request.POST)
 
         if comment_form.is_valid():
-            comment_form.author = request.user.username
+            comment_form.instance.author = request.user
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
@@ -103,9 +103,7 @@ def AddPost(request, slug):
 
 def EditPost(request, post_id):
     post = get_object_or_404(Post, id=post_id)
-    if post.author != request.user:
-        return redirect(reverse('forum_post'))
-
+ 
     post_form = PostForm(request.POST or None, request.FILES, instance=post)
     if request.method == 'POST':
         if post_form.is_valid():
@@ -122,7 +120,5 @@ def EditPost(request, post_id):
 
 def DeletePost(request, post_id):
     post = get_object_or_404(Post, id=post_id)
-    if post.author != request.user:
-        return redirect(reverse('forum_post'))
     post.delete()
     return redirect(reverse('forum'))
