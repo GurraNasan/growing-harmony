@@ -34,9 +34,26 @@
                 {% else %}
                 <div class="image-container">
                     <img class="card-img-top post-img" src="{{ post.featured_image.url }}">
+                    <p class="card-text">{{ post.content | safe }}</p>
                 </div>
-                <p class="card-text">{{ post.content | safe }}</p>
                 {% endif %}
+            </div>
+            <div>
+                {% if user.is_authenticated %}
+                <form action="{% url 'like_post' post.slug %}" method="post">
+                    {% csrf_token %}
+                    {% if liked %} 
+                        <button type="submit" name="forumpost_id" value="{{ post.slug }}" class="btn-like">
+                            <i class="bi bi-heart-fill"></i></button>
+                    {% else %}
+                        <button type="submit" name="forumpost_id" value="{{ post.slug }}" class="btn-like">
+                            <i class="bi bi-heart"></i></button>
+                    {% endif %}
+                </form>
+                {% else %}
+                    <i class="bi bi-heart"></i>
+                {% endif %}
+                <span> {{ post.number_of_likes }}</span>
             </div>
         </div>
     </div>

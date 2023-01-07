@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.views import generic, View
+from django.http import HttpResponseRedirect
 from .models import Categories
 from .models import Post
 from .forms import PostForm, CommentForm
@@ -44,6 +45,9 @@ class PostDetail(View):
         queryset = Post.objects
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.order_by('-created_on')
+        liked = False
+        if post.likes.filter(id=self.request.user.id).exists():
+            liked = True
 
         return render(
             request,
@@ -51,6 +55,7 @@ class PostDetail(View):
             {
                 "post": post,
                 "comments": comments,
+                "liked": liked,
                 "comment_form": CommentForm(),
             }
         )
@@ -59,6 +64,8 @@ class PostDetail(View):
         queryset = Post.objects
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.order_by('-created_on')
+        if post.likes.filter(id=self.request.user.id).exists():
+            liked = True
 
         comment_form = CommentForm(data=request.POST)
 
@@ -76,6 +83,7 @@ class PostDetail(View):
             {
                 "post": post,
                 "Comments": comments,
+                "liked": liked,
                 "comment_form": CommentForm,
             }
         )
@@ -122,3 +130,16 @@ def DeletePost(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     post.delete()
     return redirect(reverse('forum'))
+
+
+class LikePost(View):
+
+    def post(self, request, slug):
+        post = get_object_or_404(Post, slug=slug)
+
+        if post.likes.filter(id=request.user.id).exists():
+            post.likes.remove(request.user)
+        else:
+            post.likes.add(request.user)
+
+        return redirect(reverse('forum'))

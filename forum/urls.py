@@ -10,4 +10,5 @@ urlpatterns = [
     path('<slug:slug>/add_post', views.AddPost, name='add_post'),
     path('edit/<post_id>', views.EditPost, name='edit_post'),
     path('delete/<post_id>', views.DeletePost, name='delete_post'),
+    path('<slug:slug>/like', views.LikePost.as_view(), name='like_post')
 ]
