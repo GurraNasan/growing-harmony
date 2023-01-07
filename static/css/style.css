@@ -54,3 +54,7 @@
 .like-section {
   display: flex;
 }
+
+#map {
+  padding: 150px;
+}

@@ -15,6 +15,10 @@ def contact(request):
     return render(request, 'contact.html')
 
 
+def shop(request):
+    return render(request, 'shop.html')
+
+
 class CategoryList(generic.ListView):
     model = Categories
     template_name = 'forum.html'
