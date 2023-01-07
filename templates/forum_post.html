@@ -39,7 +39,35 @@
                 {% endif %}
             </div>
         </div>
-
+    </div>
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h3>Comments: </h3>
+            {% for comment in comments %}
+            Do the loop work
+            <div class="card bg-secondary">
+                <div class="card-header">
+                    Author: {{ comment.author }} 
+                    Added: {{ comment.created_on }}
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ comment.comment }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col">
+                {% if user.is_authenticated %}
+                <form method="post">
+                    {{ comment_form | crispy }}
+                    {% csrf_token %}
+                    <button types="submit" class="btn btn-success">Add Comment</button>
+                </form>
+                {% endif %}
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %} 
