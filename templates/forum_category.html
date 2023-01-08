@@ -5,7 +5,7 @@
 {% block content %}
 
 {% load crispy_forms_tags %}
-
+<!-- Header section-->
 <section id="hero" class="hero d-flex flex-column justify-content-center align-items-center" data-aos="fade"
     data-aos-delay="1500">
     <div class="container">
@@ -21,6 +21,8 @@
         </div>
     </div>
 </section>
+<!-- Post section -->
+<section>
 <div class="container">
     <div class="row justify-content-md-center"></div>
     {% for post in posts %}
@@ -41,4 +43,5 @@
     {% endfor %}
     </div>
 </div>
+</section>
 {% endblock %} 

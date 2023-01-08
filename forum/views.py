@@ -8,25 +8,39 @@ from .forms import PostForm, CommentForm
 
 
 def home(request):
+    """
+    Home page view
+    """
     return render(request, 'index.html')
 
 
 def contact(request):
+    """
+    Contact page view
+    """
     return render(request, 'contact.html')
 
 
 def shop(request):
+    """
+    Shop page view
+    """
     return render(request, 'shop.html')
 
 
 class CategoryList(generic.ListView):
+    """
+    show all categories view
+    """
     model = Categories
     template_name = 'forum.html'
     queryset = Categories.objects.all()
 
 
 class CategoryDetail(View):
-
+    """
+    Show post in categories view
+    """
     def get(self, request, slug, *args, **kwargs):
         queryset = Categories.objects
         category = get_object_or_404(queryset, slug=slug)
@@ -44,7 +58,10 @@ class CategoryDetail(View):
 
 
 class PostDetail(View):
-
+    """
+    Show post and comment
+    Credit Code Institute I Think There for i blog
+    """
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects
         post = get_object_or_404(queryset, slug=slug)
@@ -93,6 +110,9 @@ class PostDetail(View):
 
 
 def AddPost(request, slug):
+    """
+    Add post view
+    """
     model = Post
     category = get_object_or_404(Categories, slug=slug)
     post_form = PostForm(request.POST, request.FILES)
@@ -113,8 +133,11 @@ def AddPost(request, slug):
 
 
 def EditPost(request, post_id):
+    """
+    Edit post view
+    """
     post = get_object_or_404(Post, id=post_id)
- 
+
     post_form = PostForm(request.POST or None, request.FILES, instance=post)
     if request.method == 'POST':
         if post_form.is_valid():
@@ -130,13 +153,19 @@ def EditPost(request, post_id):
 
 
 def DeletePost(request, post_id):
+    """
+    Delete post view
+    """
     post = get_object_or_404(Post, id=post_id)
     post.delete()
     return redirect(reverse('forum'))
 
 
 class LikePost(View):
-
+    """
+    Like post
+    Credit Code Institute I Think There for i blog
+    """
     def post(self, request, slug):
         post = get_object_or_404(Post, slug=slug)
 

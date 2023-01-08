@@ -22,6 +22,8 @@ class Categories(models.Model):
 
 
 class Post(models.Model):
+    # Code is copied from I think there for i blog, Code Institute
+    # But changed to fit the need of the page
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')

@@ -1,6 +1,14 @@
+/* Shop */
+
 ul {
   list-style-type: none;
 }
+
+#map {
+  padding: 150px;
+}
+
+/* categorys */
 
 .category-card {
   transition: all 0.5s;
@@ -13,6 +21,8 @@ ul {
 .card-header-text  {
   font-size: 13px;
 }
+
+/* forum posts */
 
 .border-post {
   border: 2px;
@@ -55,9 +65,7 @@ ul {
   display: flex;
 }
 
-#map {
-  padding: 150px;
-}
+/* signup/register/signout page */
 
 .signup-section {
   padding-top: 80px;

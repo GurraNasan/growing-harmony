@@ -6,7 +6,7 @@
 
 {% load crispy_forms_tags %}
 
-
+<!-- Show full post -->
 <div class="container post-section">
     <div class="row justify-content-md-center">
         <div class="card bg-secondary">
@@ -17,7 +17,7 @@
                         {{ post.created_on }}
                         Author: {{ post.author }}
                     </div>
-                    
+                    <!-- check if user is the author and can make changes/delete post-->
                     {% if post.author == request.user %}
                     <hr>
                     <a href="{% url 'delete_post' post.id %}" class="btn btn-danger right "><i
@@ -37,6 +37,7 @@
                 </div>
                 {% endif %}
             </div>
+            <!-- Like post -->
             <div class="like-section">
                 {% if user.is_authenticated %}
                 <form action="{% url 'like_post' post.slug %}" method="post">
@@ -56,6 +57,7 @@
             </div>
         </div>
     </div>
+    <!-- comments on post -->
     <div class="row">
         <div class="col">
             <hr>
