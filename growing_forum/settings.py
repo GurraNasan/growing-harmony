@@ -33,7 +33,7 @@ DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORGIN'
 
-ALLOWED_HOSTS = ["growingharmoni.herokuapp.com/", "localhost"]
+ALLOWED_HOSTS = ["growingharmoni.herokuapp.com", "localhost"]
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 
