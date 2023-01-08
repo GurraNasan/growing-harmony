@@ -20,10 +20,10 @@
                     <!-- check if user is the author and can make changes/delete post-->
                     {% if post.author == request.user %}
                     <hr>
-                    <a href="{% url 'delete_post' post.id %}" class="btn btn-danger right "><i
-                            class="bi bi-trash"></i>Delete</a>
-                    <a href="{% url 'edit_post' post.id %}" class="btn btn-primary right "><i
-                            class="bi bi-pencil"></i>Edit</a>
+                    <a href="{% url 'delete_post' post.id %}" class="btn btn-danger right" aria-label="delete post">
+                        <i class="fa-solid fa-trash"></i>Delete</a>
+                    <a href="{% url 'edit_post' post.id %}" class="btn btn-primary right" aria-label="edit post">
+                        <i class="fa-regular fa-pen-to-square"></i>Edit</a>
                     {% endif %}
                 </div>
             </div>
@@ -32,7 +32,7 @@
                 <p class="card-text">{{ post.content | safe }}</p>
                 {% else %}
                 <div class="image-container">
-                    <img class="card-img-top post-img" src="{{ post.featured_image.url }}">
+                    <img class="card-img-top post-img" src="{{ post.featured_image.url }}" alt="{{ post.title }}">
                     <p class="card-text">{{ post.content | safe }}</p>
                 </div>
                 {% endif %}
@@ -43,15 +43,15 @@
                 <form action="{% url 'like_post' post.slug %}" method="post">
                     {% csrf_token %}
                     {% if liked %} 
-                        <button type="submit" name="forumpost_id" value="{{ post.slug }}" class="like-btn">
-                            <i class="bi bi-heart-fill"></i></button>
+                        <button type="submit" name="forumpost_id" value="{{ post.slug }}" class="like-btn" aria-label="unlike post">
+                            <i class="fa-solid fa-heart"></i></button>
                     {% else %}
-                        <button type="submit" name="forumpost_id" value="{{ post.slug }}" class="like-btn">
-                            <i class="bi bi-heart"></i></button>
+                        <button type="submit" name="forumpost_id" value="{{ post.slug }}" class="like-btn" aria-label="like post">
+                            <i class="fa-regular fa-heart"></i></i></button>
                     {% endif %}
                 </form>
                 {% else %}
-                    <i class="bi bi-heart"></i>
+                    <i class="fa-regular fa-heart"></i>
                 {% endif %}
                 {{ post.number_of_likes }}
             </div>
@@ -80,7 +80,7 @@
                 <form method="post">
                     {{ comment_form | crispy }}
                     {% csrf_token %}
-                    <button types="submit" class="btn btn-success">Add Comment</button>
+                    <button types="submit" class="btn btn-success" aria-label="add comment">Add Comment</button>
                 </form>
                 {% endif %}
             </div>

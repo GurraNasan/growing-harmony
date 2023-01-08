@@ -23,9 +23,9 @@
                             <div class="image-container">
                                 {% if "placeholder" in category.categorie_image.url %}
                                 <img class="card-img-top" src="{% static 'img/odlaihermoni.jpg' %}"
-                                    alt="PinkFlower">
+                                    alt="a butterfly">
                                 {% else %}
-                                <img class="card-img-top" src="{{ category.categorie_image.url }}">
+                                <img class="card-img-top" src="{{ category.categorie_image.url }}" alt="{{ category.title }}">
                                 {% endif %}
                                 <h3 class="card-title bg-dark category-card">{{ category.title }}</h3>
                             </div>
