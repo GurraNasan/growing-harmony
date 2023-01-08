@@ -121,6 +121,7 @@ def AddPost(request, slug):
             post_form.instance.author = request.user
             post_form.instance.category = category
             post = post_form.save()
+            messages.success(request, 'Post added')
             return redirect(reverse('forum'))
 
     template_name = 'add_post.html'
@@ -143,6 +144,7 @@ def EditPost(request, post_id):
         if post_form.is_valid():
             post_form.instance.author = request.user
             post = post_form.save()
+            messages.success(request, 'Post edited')
             return redirect(reverse('forum'))
 
     template_name = 'edit_post.html'
@@ -158,6 +160,7 @@ def DeletePost(request, post_id):
     """
     post = get_object_or_404(Post, id=post_id)
     post.delete()
+    messages.success(request, 'Post deleted')
     return redirect(reverse('forum'))
 
 

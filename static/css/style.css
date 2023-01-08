@@ -1,3 +1,9 @@
+/* Base page */
+
+.msg-down {
+  padding: 90px;
+}
+
 /* Shop */
 
 ul {
@@ -63,10 +69,4 @@ ul {
 
 .like-section {
   display: flex;
-}
-
-/* signup/register/signout page */
-
-.signup-section {
-  padding-top: 80px;
 }

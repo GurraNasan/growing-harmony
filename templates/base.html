@@ -79,7 +79,18 @@
 
         </div>
     </header><!-- End Header -->
-
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2 msg-down">
+                {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                    {{ message | safe }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
     <!-- Main Content-->
     <main id="main" data-aos="fade" data-aos-delay="1500"> 
     {% block content %}
@@ -119,7 +130,7 @@
     <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmfa1655-zCZDPu6NWDQSnBMNmj8LVDmw&callback=initMap&v=weekly" defer></script>
-    <script src="{% static 'js/map.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 
 </html>
