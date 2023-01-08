@@ -123,7 +123,7 @@ def AddPost(request, slug):
             post = post_form.save()
             messages.success(request, 'Post added')
             return redirect(reverse('forum'))
-
+        messages.error(request, 'You need to change the title')
     template_name = 'add_post.html'
     content = {
         "category": category,
@@ -146,7 +146,7 @@ def EditPost(request, post_id):
             post = post_form.save()
             messages.success(request, 'Post edited')
             return redirect(reverse('forum'))
-
+        messages.error(request, 'You need to change the title')
     template_name = 'edit_post.html'
     content = {
         "post_form": post_form
