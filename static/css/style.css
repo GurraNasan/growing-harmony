@@ -1,3 +1,7 @@
+ul {
+  list-style-type: none;
+}
+
 .category-card {
   transition: all 0.5s;
   z-index: 997;
@@ -32,10 +36,6 @@
   margin-right: auto;
 }
 
-.signup-section {
-  padding-top: 80px;
-}
-
 .add-post-section {
   padding-top: 100px;
 }
@@ -57,4 +57,8 @@
 
 #map {
   padding: 150px;
+}
+
+.signup-section {
+  padding-top: 80px;
 }

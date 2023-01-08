@@ -86,8 +86,7 @@ class PostDetail(View):
             "forum_post.html",
             {
                 "post": post,
-                "Comments": comments,
-                "liked": liked,
+                "comments": comments,
                 "comment_form": CommentForm,
             }
         )
