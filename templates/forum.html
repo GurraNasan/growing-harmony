@@ -17,21 +17,21 @@
         <div class="row">
         {% for category in categories_list %}
             <div class="col-md-4">
-                <div class="card mb-4">
-                    <div class="card-body bg-secondary">
-                        <div class="image-container">
-                            {% if "placeholder" in category.categorie_image.url %}
-                            <img class="card-img-top" src="{% static 'img/odlaihermoni.jpg' %}"
-                                alt="PinkFlower">
-                            {% else %}
-                            <img class="card-img-top" src="{{ category.categorie_image.url }}">
-                            {% endif %}
+                <a href="{% url 'category_detail' category.slug %}">
+                    <div class="card mb-4">
+                        <div class="card-body bg-secondary">
+                            <div class="image-container">
+                                {% if "placeholder" in category.categorie_image.url %}
+                                <img class="card-img-top" src="{% static 'img/odlaihermoni.jpg' %}"
+                                    alt="PinkFlower">
+                                {% else %}
+                                <img class="card-img-top" src="{{ category.categorie_image.url }}">
+                                {% endif %}
+                                <h3 class="card-title bg-dark category-card">{{ category.title }}</h3>
+                            </div>
                         </div>
-                        <a href="{% url 'category_detail' category.slug %}">
-                            <h3 class="card-title bg-dark category-card">{{ category.title }}</h3>
-                        </a>
                     </div>
-                </div>
+                </a>
             </div>
         {% if forloop.counter|divisibleby:3 %}
         </div>
