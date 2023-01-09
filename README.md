@@ -1,108 +1,232 @@
 # Growing in harmony
 
-![amiresponsive](documentation/img/responsiv.jpg)
+![amiresponsive](documentation/img/Responsiv.jpg)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+Live App link : [Grow in harmony](https://growingharmoni.herokuapp.com/)
+Git Hub Repository : [Grow in harmony](https://github.com/GurraNasan/growing-harmony/)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+Grow in harmony is a app for home farmers and plant lovers, it is build on a blog but is meant to be more
+interactiv. On the site the user can read and make there own posts and comment on other users posts. You need
+to register a user if you want to post/like or comment on a post. But it is also a page for the owner to sell her
+merch and sell in the brand.
 
-## Gitpod Reminders
+# Contents
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
++ [User Experience(UX)](#user-experience-ux)
+  + [Agile Method](#agile-method)
+      + [User Stories](#user-stories "User Stories")
+      + [Data modal](#data-modal)
+      + [Future Features](#future-features)
+      
++ [Page Features](#page-features)
+   + [nav bar](#nav-bar)
+   + [Index](#index-page)
+   + [Shop](#shop)
+   + [Forum](#forum)
+      + [Category](#category)
+      + [Category Posts](#category-post)
+      + [Post](#post)
+      + [Add post](#add-post)  
+   + [Contact](#contact)
+   + [Register](#register)
+   + [Admin](#radmin)
+   
++ [Technologies](#Technologies)
+   + [Programming Languages](#programming-languages)
+   + [Support Programs & libraries](#support-programs-libraries)
 
-`python3 -m http.server`
++ [Testing](#Testing)
+   + [Bug](#bugs)
+   + [ManuelTesting](#manuel-testing)
+       + [NavigationHeader](#navigation-header)
+   + [PageManualTesting](#home-page-maual-testing)
+      + [Index page](#testing-index-page)
+      + [SignInManualTesting](#sign-in-manual-testing)
+      + [Forum](#teseting-forum)  
+        + [Category Page](#category-page-testing)
+        + [Category Posts](#category-post-testing)
+        + [Posts](#post-testing)            
+   + [Validation](#validator-testing)
+   
++ [Deployment](#deployment)
+   + [Github](#github)
+   + [Django and Heroku](#django-and-heroku)   
+   + [Clone Project](#clone-project)
+   
++ [Acknowledgments](#acknowledgments)
+    + [Credits](#credits)
+    + [CopiedCode&CodeAssistance](#copied-code--code-assistance)
+    + [Note](#note)
+    
+## User Experience UX
 
-A blue button should appear to click: _Make Public_,
+I found a good bootstrap template from [Bootstrapmade](https://bootstrapmade.com/) called PhotoFolio. I liked the green colors because
+i was making a plant forum and fellt like it was a great fit. It had a nice nav menu that worked good both on computer and on a phone. 
 
-Another blue button should appear to click: _Open Browser_.
+### Agile Method
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+I used the github projects as a agile tool to manage the planning and implamentation of functions to the site. 
+[Project Board](https://github.com/users/GurraNasan/projects/5)
 
-A blue button should appear to click: _Make Public_,
+### User Stories
 
-Another blue button should appear to click: _Open Browser_.
+Before i started to write the code a made user stories to for what the user/admin wanted and what they would get from it. 
+This are my user stories:
++ [USER STORY: Account registrator](https://github.com/GurraNasan/growing-harmony/issues/1)
++ [USER STORY: Admin](https://github.com/GurraNasan/growing-harmony/issues/8)
++ [USER STORY: Add post](https://github.com/GurraNasan/growing-harmony/issues/3)
++ [USER STORY: Comment on post](https://github.com/GurraNasan/growing-harmony/issues/4)
++ [USER STORY: Like/unlike](https://github.com/GurraNasan/growing-harmony/issues/2)
++ [USER STORY: View post](https://github.com/GurraNasan/growing-harmony/issues/7)
++ [USER STORY: Add category](https://github.com/GurraNasan/growing-harmony/issues/9)
++ [USER STORY: View like](https://github.com/GurraNasan/growing-harmony/issues/5)
++ [USER STORY: View shop](https://github.com/GurraNasan/growing-harmony/issues/6)
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### Data Modal
+Before a started i made a model diagram so i would know how to build up the databasa modal and
+connect them toghter.
 
-To log into the Heroku toolbelt CLI:
+![models_diagram](documentation/img/models_diagram.jpg)
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+### Future Features
+When i was coding i came up with a couple of more features to implant.
+User can delete and edit comments, i have the knowledgs to do it, but felt i did not have time
+A online shop for merch, i dont have the knowledge yet to do it.
+A better design for the post when you choosed a category, with more information.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+## Page Features
 
-------
+### Nav bar
+![Nav_Bar](documentation/img/nav_not_logged_in.jpg)
+Here you can see the name of the page and links to all pages, this is for big screens.
+There is also social links to Instagram and Facebook
 
-## Release History
+![Nav_Bar](documentation/img/nav_small.jpg)
+The nav bar is responsiv and on smaller screens it turns in to a list
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+### Index page
+![index_page](documentation/img/index.jpg)
+Here you can read a short presentation about the page owner and what the page is about
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+### Shop
+![shop_page](documentation/img/shop.jpg)
+Here you can see on a google linked map were you can by the page owners merch
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+### Forum
+#### Category
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+![forum](documentation/img/forum.jpg)
+Here the user can see the categories the page owner/admin choosed to make and can press on them if they want to read or add a post in that category. 
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+#### Category post
+![category posts](documentation/img/post_in_category.jpg)
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+Here the user can see all the posts in that category and see how many likes they have got. 
+If the user is logged in he/she gets a button to add post in that category. The user can press the
+post and see it in whole. I feel that there is alot with the design to fix here but that will be in next circle.
+      
+#### Post
+![read posts](documentation/img/read_post.jpg)
+ 
+Here the user can read the whole post with title, content and image if there are any. If there is the author of the post he/she gets a edit and a delete button so the user can interakt with it. 
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+![read posts](documentation/img/comment_post.jpg)
+ 
+Here the user can read comments on the post and if they are logged in they can leave there own.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+#### Add post
+![add posts](documentation/img/add_post.jpg)
+ 
+Here the user get a Field to type title, a field for content and can uploade a image if he/she want. The edit page looks the same. 
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+### Contact
+![Contact](documentation/img/contact.jpg)
+ 
+Here the user get the email adress and real adress to the site owner 
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+### Register
+![register](documentation/img/signup.jpg)
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+Here a user can sign up to the site so he/she can comment and post in the forum.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+![signin](documentation/img/signin.jpg)
+If the user already have a account on the page.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+![signout](documentation/img/signout.jpg)
+If the user want to sign out
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+### Admin
+![admin](documentation/img/admin_page.jpg)
+ 
+Here the site owner got there own page to controll the page. He/she can add/delete/edit categorys, posts and comments. 
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+## Technologies
 
-------
+### Programming Languages
++ [HTML5](https://en.wikipedia.org/wiki/HTML5)
++ [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
++ [Javascript](https://en.wikipedia.org/wiki/JavaScript)
++ [Python](https://www.python.org/)
 
-## FAQ about the uptime script
+### Support Programs & libraries
 
-**Why have you added this script?**
++ [Git](https://git-scm.com/)
+    - Version control.
++ [GitHub](https://github.com/)
+    - For storing code and deploying the site.
++ [Gitpod](https://www.gitpod.io/)
+    - Used for building and editing my code.
++ [Django](https://www.djangoproject.com/)
+    - A python based framework that was used to develop the site.
++ [Bootstrap](https://getbootstrap.com/)
+    - For help designing the html templates.
++ [Google Fonts](https://fonts.google.com/)
+    - Used to add style the website's font.
++ [Font Awesome](https://fontawesome.com/)
+    - Used to obtain the icons used.
++ [Favicon.io](https://favicon.io/emoji-favicons/amphora/)
+    - Used to generate the site's favicon.   
++ [Google Developer Tools](https://developers.google.com/web/tools/chrome-devtools)
+    - Used to help fix problem areas and identify bugs.
++ [Cloudinary](https://cloudinary.com/)
+    - Used to store static files and images.
++ [ElephantSQL](https://www.elephantsql.com/)
+    - Storage for the database
++ [W3C Markup Validation Service](https://validator.w3.org/) 
+    - Used to validate HTML code.
++ [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/#validate_by_input)
+    - Used to validate CSS code.
++ [Pep8ci](https://pep8ci.herokuapp.com/) - Thank you Code Institute
+    - Used to validate Python code found on slack #announcements
++ [JSHint](https://jshint.com/)
+    - Used to validate JS code.
++ [Summernote](https://summernote.org/)
++ [Heroku](https://www.heroku.com/)
+    - To deploy the project.
+   
+   
+## Testing
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+### Bug
+I have run in to a couple of bug while you writing the code and i tried to squash them direct when i run in to them. So i forgot to document them. 
 
-**How will this affect me?**
+But the biggest one was that my css was gone when first deployed the page, to see if it worked
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+![no_css](documentation/bug/no_css.jpg)
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+This was fixed by setting debug to False.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
 
-**So….?**
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
 
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+   + [ManuelTesting](#manuel-testing)
+       + [NavigationHeader](#navigation-header)
+   + [PageManualTesting](#home-page-maual-testing)
+      + [Index page](#testing-index-page)
+      + [SignInManualTesting](#sign-in-manual-testing)
+      + [Forum](#teseting-forum)  
+        + [Category Page](#category-page-testing)
+        + [Category Posts](#category-post-testing)
+        + [Posts](#post-testing)            
+   + [Validation](#validator-testing)
+[Back to top ⇧](#contents)
