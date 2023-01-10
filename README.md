@@ -58,12 +58,10 @@ merch and sell in the brand.
    + [Github](#github)
    + [Gitpod and Django](#gitpod-and-django)
    + [Heroku](#heroku)   
-   + [Clone Project](#clone-project)
    
 + [Acknowledgments](#acknowledgments)
     + [Credits](#credits)
-    + [CopiedCode&CodeAssistance](#copied-code--code-assistance)
-    + [Note](#note)
+    + [Copied Code](#copied-code)
     
 ## User Experience UX
 
@@ -386,7 +384,8 @@ To fellow students on Slack for inspiration and help when i was stuck
 Code Institute Tutoring for when the panic set in
 Code Institute lesson videos, many hourse going back and forward, so not it almost feels like i know Matt personally.
 Bootstrapmade for they template i used to design the app
-### CopiedCode&CodeAssistance
+
+### Copied Code
 Code Institutes walkthrough: I think therefore I Blog paid a big part in the structure of my App as well as certain parts that are directly used and referred to in the code via comments. And i used some of the code from the bootstrap resume lessons, like the google map api. 
 
 
