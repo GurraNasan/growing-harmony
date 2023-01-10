@@ -128,7 +128,6 @@ def AddPost(request, slug):
     content = {
         "category": category,
         "post_form": PostForm()
-
     }
     return render(request, template_name, content)
 

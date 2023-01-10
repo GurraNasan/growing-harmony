@@ -36,21 +36,28 @@ merch and sell in the brand.
    + [Support Programs & libraries](#support-programs-libraries)
 
 + [Testing](#Testing)
-   + [Bug](#bugs)
-   + [ManuelTesting](#manuel-testing)
-       + [NavigationHeader](#navigation-header)
-   + [PageManualTesting](#home-page-maual-testing)
-      + [Index page](#testing-index-page)
-      + [SignInManualTesting](#sign-in-manual-testing)
-      + [Forum](#teseting-forum)  
+    + [Bug](#bugs)
+    + [ManuelTesting](#manuel-testing)
+    + [NavigationHeader](#navigation-header)
+    + [PageManualTesting](#home-page-maual-testing)
+    + [Index page](#testing-index-page)
+    + [SignInManualTesting](#sign-in-manual-testing)
+    + [Forum](#teseting-forum)  
         + [Category Page](#category-page-testing)
         + [Category Posts](#category-post-testing)
-        + [Posts](#post-testing)            
-   + [Validation](#validator-testing)
+        + [Posts](#post-testing)
+        + [add/edit post](#add/edit-post)          
+    + [Validation](#Validation)
+        + [HTML](#html)
+        + [CSS](#css)
+        + [Python](#python)
+        + [Javascrip](#javascript)
+        + [Lighthouse](#lighthouse)
    
 + [Deployment](#deployment)
    + [Github](#github)
-   + [Django and Heroku](#django-and-heroku)   
+   + [Gitpod and Django](#gitpod-and-django)
+   + [Heroku](#heroku)   
    + [Clone Project](#clone-project)
    
 + [Acknowledgments](#acknowledgments)
@@ -216,17 +223,172 @@ But the biggest one was that my css was gone when first deployed the page, to se
 
 This was fixed by setting debug to False.
 
+Many bugs was just typos like. 
+
+![block_typo](documentation/bug/bug_typo_block.jpg)
+
+I wrote block insteat of base. 
+
+![two_comments](documentation/bug/two_comments.jpg)
+
+I had but a big C in the post wiew instead of a small one. 
+
+![loadimg](documentation/bug/bug_loadimage.jpg)
+
+Here i forgot the {% endif %} in the template
+
+One big bug i needed to ask slack about help was that i could not get the image in the post to update
+when the user edit there post. I got it fixed by putting, request.FILES in the view for EditPost when i requested the post form. An importen thing when dealing with images in forms was to enctype="multipart/form-data" in the form tag. 
+
+
+### ManuelTesting
+When i put in a new featured i manuel testet it to see if it worked as i expected. 
+
+#### NavigationHeader testing
+For the nav bar i tested so the nav links send me to the right site by press on them.
+The social links opens in a new tab. 
+Press the logo and you will be send to the index page. 
+If you go to a smaller screen the nav bar change to a list instead, tried it with the devtool in Chrome
+
+![nav_logged_in](documentation/img/nav_logged_in.jpg.jpg)
+
+If you are logged in you see a log out link
+
+![nav_not_logged_in](documentation/img/nav_not_logged_in.jpg)
+
+IF you not logged in you get a log in and register link instead
+
+#### Index page testing
+Here was not much to try. But the contact link takes you to the contact page.
+The text is responsiv and change its layout after the screen size, testet it with devtools 
+
+#### Sign In Manual Testing
+
+I tried the sign in page by write in short password and no username and i gave me errors 
+
+![no_user_name](documentation/img/no_user_name.jpg )
+
+![to_short_pass](documentation/img/to_short_pass.jpg)
+
+![try_password](documentation/img/try_password.jpg)
+
+#### Forum testing
+
+This is the page were the most backend can go wrong and most thing to test. 
+
+##### Category Page testing
+
+Here i tested it out by pressing the category card and they take you to the right category. 
+The page is responsiv and on big screen it shows up to 3 categorys in a row.
+On smaller screens the categorys jumps down under each other. Tried it out with devtool
+
+##### Category Posts testing
+
+Here should the right post that is connected to the category only be showing and it seems to do that.
+It also shows how many likes the posts have got, and tried to like and unlike the posts and the count changed
+
+![category_logged_in](documentation/img/post_in_category.jpg)
+
+If you logged in you can add post
+
+![category_not_logged_in](documentation/img/not_logged_in_category.jpg)
+
+If you not logged in you cant see the add post button
+
+##### Posts testing
+
+![read_post](documentation/img/read_post.jpg)
+
+Here the user can read the post, see the title and the image that is uploaded in the post and everything renders as it should. 
+
+![not_logged_in](documentation/img/logged_in_post.jpg)
+
+If the logged in user is the author of the post he/she can see a edit/delete button. They cant be seen if you are not logged in or the wrong user.
+Tried to long in as other user and cant see them. 
+
+##### add/edit post
+I tried to post and it workes fine and the post shows up as they should, i tried to edit them too and it works.
+
+![no_title](documentation/img/no_title.jpg)
+
+
+Tried what happens if you have no title in the post or change to a title that already exists
+
+![change_title](documentation/img/change_title.jpg)
+
+
+### Validation
+
+#### HTML
+
+![html_validator](documentation/validation/html_validator.jpg)
+
+No errors
+
+#### CSS
+![css_validator](documentation/validation/Css_validator.jpg)
+Here i got some errors that lays in the css from the Bootstrapmade css template.
+tried to fix it, but my knowledgs in css is not that good yet.
+
+#### Python
+![form_validator](documentation/validation/form_validator.jpg)
+![urls_validator](documentation/validation/urls_validator.jpg)
+![views_validator](documentation/validation/views_validator.jpg)
+No error in the python code
+
+### Javascript
+![js_validator](documentation/validation/js_validator.jpg)
+No errors in the javescript
+
+### Lighthouse
+![lighthouse_index](documentation/validation/lighthouse_index.jpg)
+![lighthouse_forum](documentation/validation/lighthouse_forum.jpg)
+![lighthouse_forum_post](documentation/validation/lighthouse_forum_post.jpg)
+
+## Deployment
+I used github and heroku to deply this project
+
+### Github
+
++ First you need to start a new repository.
++ Logg in to Github.
++ Press the blue book icon.
++ Choose a template, i use the code institute template as recommended.
++ Add repository name and press create repository in the bottom of the page.
++ Then press the gitpod button.
+
+### Gitpod and Django
+
++ Here you install django with pip install Django
++ Install other Libraries you need
++ Write your code
++ Dont forget to make a env file for sensitiv data and write it in the .gitignore file so you dont send it to the public. 
++ You also need to make a requirements.txt file. Use: pip3 -freeze-- local > requirements.txt
++ Make a Procfil
+
+### Heroku
+
++ Logg in to heroku
++ Press the new button and then new app
++ Choose uniquely app name and region and click creat app
++ Go to settings and reveal config var, here you write in all the sensetiv data, address to database and other urls you use in the project.
++ Go back at the top and click on "Deploy" and select "GitHub".
++ Scroll down and click on 'Connect to GitHub'.
++ Search for your GitHub repository name by typing it.
++ Click on "Connect".
++ Scroll down and click on "Deploy Branch".
++ You will see a message "The app was successfully deployed" when the app is built with python and all the depencencies.
++ Click on view and you will see the [deployed site](https://growingharmoni.herokuapp.com/).
+
+## Acknowledgments
+### Credits
+To fellow students on Slack for inspiration and help when i was stuck 
+Code Institute Tutoring for when the panic set in
+Code Institute lesson videos, many hourse going back and forward, so not it almost feels like i know Matt personally.
+Bootstrapmade for they template i used to design the app
+### CopiedCode&CodeAssistance
+Code Institutes walkthrough: I think therefore I Blog paid a big part in the structure of my App as well as certain parts that are directly used and referred to in the code via comments. And i used some of the code from the bootstrap resume lessons, like the google map api. 
 
 
 
-   + [ManuelTesting](#manuel-testing)
-       + [NavigationHeader](#navigation-header)
-   + [PageManualTesting](#home-page-maual-testing)
-      + [Index page](#testing-index-page)
-      + [SignInManualTesting](#sign-in-manual-testing)
-      + [Forum](#teseting-forum)  
-        + [Category Page](#category-page-testing)
-        + [Category Posts](#category-post-testing)
-        + [Posts](#post-testing)            
-   + [Validation](#validator-testing)
 [Back to top ⇧](#contents)
